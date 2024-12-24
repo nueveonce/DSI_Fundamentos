@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: funciones
+Version: 0.1
+Summary: Paquete con funciones personalizadas
+Author: Roberto
+Author-email: porsche@live.com.ar
+License: MIT
+Requires-Dist: matplotlib
+Requires-Dist: numpy
