@@ -41,14 +41,14 @@ def grafico_barras_plt(datos,datosx,datosy,titulo):
     for barra in barras:
         altura = barra.get_height()  # Obtener la altura de la barra
         centro_x = barra.get_x() + barra.get_width() / 2  # Coordenada horizontal central
-        porcentaje = (altura / total) * 100  # Calcular porcentaje        
+        porcentaje = (altura / total) * 100      # Calcular porcentaje        
         # Etiqueta con cantidad y porcentaje
         ax.annotate(f'{int(altura)} ({porcentaje:.1f}%)',
                     xy=(centro_x, altura + 15),  # Coordenadas centradas en la barra
-                    ha='center', va='bottom',  # Alineación horizontal y vertical
-                    color='black',             # Opcional: texto en blanco para contraste
-                    fontsize=10)               # Tamaño de la fuente
-                    #weight='bold')            # Opcional: texto en negrita
+                    ha='center', va='bottom',    # Alineación horizontal y vertical
+                    color='black',               # Opcional: texto en blanco para contraste
+                    fontsize=10)                 # Tamaño de la fuente
+                    #weight='bold')              # Opcional: texto en negrita
     plt.show()
     
 # creación de diccionario para los tipos de colesterol LDL segun su valor
@@ -110,9 +110,23 @@ def limpiar_datos_IQR(columna,considerar):
 def dibujar_boxplot(datos,columna,limpio="con limpieza de datos"):    
 
     fig, ax = plt.subplots(figsize = (10, 4))
+    fig.patch.set_facecolor("#c7c7c7")  # Color de fondo de la figura
+    ax.set_facecolor("#c2c2c2")  # Color de fondo del gráfico
     ax.boxplot(datos[columna],
             vert=False,
+        patch_artist=True,  # Permite rellenar las cajas con color
+        
+        # Personalización de las cajas
+        boxprops=dict(
+            facecolor="#829147",  # Color de relleno de la caja
+            color="#adc15e",      # Color del borde de la caja
+            alpha=0.6             # Transparencia
+        ),
             flierprops=dict(markerfacecolor= "red")
             )
     plt.title("Columna {} {}".format(columna,limpio))
-
+'''
+colores_barras = ["#adc15e","#97a952","#829147","#6c793b","#56612f","#414823","#2b3018","#16180c"] # Lista de colores
+    ax.set_facecolor("#c2c2c2")  # Fondo del área del gráfico
+    fig.patch.set_facecolor("#7c7c7c")  # Fondo de la figura completa
+'''
