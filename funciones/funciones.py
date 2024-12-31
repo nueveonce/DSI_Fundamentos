@@ -21,7 +21,7 @@ def grafico_barras_plt(datos,datosx,datosy,titulo):
     y = datos[datosy] # capturamos los datos del eje y
     total= sum(y) # Sumar todas las cantidades para calcular el porcentaje
     
-    fig, ax = plt.subplots(figsize=(10, 7))
+    fig, ax = plt.subplots(figsize=(10, 5))
      # Personalizar fondo del gráfico
     ax.set_facecolor("#c2c2c2")  # Fondo del área del gráfico
     fig.patch.set_facecolor("#7c7c7c")  # Fondo de la figura completa
@@ -109,7 +109,7 @@ def limpiar_datos_IQR(columna,considerar):
 
 def dibujar_boxplot(datos,columna,limpio="con limpieza de datos"):    
 
-    fig, ax = plt.subplots(figsize = (10, 4))
+    fig, ax = plt.subplots(figsize = (10, 5))
     fig.patch.set_facecolor("#c7c7c7")  # Color de fondo de la figura
     ax.set_facecolor("#c2c2c2")  # Color de fondo del gráfico
     ax.boxplot(datos[columna],
@@ -125,8 +125,3 @@ def dibujar_boxplot(datos,columna,limpio="con limpieza de datos"):
             flierprops=dict(markerfacecolor= "red")
             )
     plt.title("Columna {} {}".format(columna,limpio))
-'''
-colores_barras = ["#adc15e","#97a952","#829147","#6c793b","#56612f","#414823","#2b3018","#16180c"] # Lista de colores
-    ax.set_facecolor("#c2c2c2")  # Fondo del área del gráfico
-    fig.patch.set_facecolor("#7c7c7c")  # Fondo de la figura completa
-'''
